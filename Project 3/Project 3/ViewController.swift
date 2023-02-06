@@ -29,13 +29,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadDate()
         loadTime()
-    
     }
     fileprivate func loadTime() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
             let date = Date()
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm:ss"
+            dateFormatter.dateFormat = "HH:mm:ss"
             let currentTime = dateFormatter.string(from: date)
             let currentTimeString = String(currentTime)
             self.timeLabel.text! = self.dateHolder + " " + currentTimeString
@@ -75,7 +74,7 @@ class ViewController: UIViewController {
         if state == 0 {
            // startStop.setTitle("Stop Timer", for: .normal)
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm:ss"
+            dateFormatter.dateFormat = "HH:mm:ss"
             let pickerTime = dateFormatter.string(from: timePicker.date)
             self.timeRemain.text = "Time Remaining: " + pickerTime
             
@@ -97,7 +96,7 @@ class ViewController: UIViewController {
             let timeInterval = TimeInterval(timeLeftInt)
             let newDate = Date(timeIntervalSince1970: timeInterval)
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "hh:mm:ss"
+            dateFormatter.dateFormat = "HH:mm:ss"
             let newDateString = dateFormatter.string(from: newDate)
             self.timeRemain.text = "Time Remaining: " + newDateString
             timeLeftInt += -1
